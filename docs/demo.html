@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Demo - Papa Parse</title>
+		<title>デモ - Papa Parse</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, maximum-scale=1.0">
 		<meta name="theme-color" content="#ffffff">
@@ -23,13 +23,13 @@
 					<div class="grid-40 mobile-grid-50">
 						<div class="links">
 							<a href="/demo">
-								<i class="fa fa-magic fa-lg"></i> Demo
+								<i class="fa fa-magic fa-lg"></i> デモ
 							</a>
 							<a href="/docs">
-								<i class="fa fa-book fa-lg"></i> Docs
+								<i class="fa fa-book fa-lg"></i> ドキュメント
 							</a>
 							<a href="/faq">
-								<i class="fa fa-question fa-lg"></i> FAQ
+								<i class="fa fa-question fa-lg"></i> よくある質問
 							</a>
 						</div>
 					</div>
@@ -42,7 +42,7 @@
 								<i class="fa fa-github fa-lg"></i> GitHub
 							</a>
 							<a href="http://stackoverflow.com/questions/tagged/papaparse">
-								<i class="fa fa-stack-overflow fa-lg"></i> Help
+								<i class="fa fa-stack-overflow fa-lg"></i> ヘルプ
 							</a>
 						</div>
 					</div>
@@ -50,41 +50,41 @@
 			</header>
 
 
-			<h1>Choose a Demo</h1>
+			<h1>デモを選択</h1>
 
 			<div class="tabs">
-				<div class="tab active" id="tab-string">String</div>
-				<div class="tab" id="tab-local">Local File(s)</div>
-				<div class="tab" id="tab-remote">Remote File</div>
-				<div class="tab" id="tab-unparse">JSON to CSV</div>
+				<div class="tab active" id="tab-string">文字列</div>
+				<div class="tab" id="tab-local">ローカルファイル</div>
+				<div class="tab" id="tab-remote">リモートファイル</div>
+				<div class="tab" id="tab-unparse">JSONをCSVに変換</div>
 			</div>
 
 			<div class="grid-container">
 
 				<div class="grid-25">
 					<label>
-						<input type="checkbox" id="stream"> Stream
-						<dfn>Results are delivered row by row to a step function. Use with large inputs that would crash the browser.</dfn>
+						<input type="checkbox" id="stream"> ストリーミング
+						<dfn>結果は行ごとにステップ関数に配信されます。ブラウザをクラッシュさせるような大きな入力に使用します。</dfn>
 					</label>
 
 					<label>
-						<input type="checkbox" id="worker"> Worker thread
-						<dfn>Uses a separate thread so the web page doesn't lock up.</dfn>
+						<input type="checkbox" id="worker"> ワーカースレッド
+						<dfn>別のスレッドを使用してWebページがロックアップしないようにします。</dfn>
 					</label>
 
 					<label>
-						<input type="checkbox" id="header"> Header row
-						<dfn>Keys data by field name rather than an array.</dfn>
+						<input type="checkbox" id="header"> ヘッダー行
+						<dfn>フィールド名をキーとしてデータを配列ではなくオブジェクトとして扱います。</dfn>
 					</label>
 
 					<label>
-						<input type="checkbox" id="dynamicTyping"> Dynamic typing
-						<dfn>Turns numeric data into numbers and true/false into booleans.</dfn>
+						<input type="checkbox" id="dynamicTyping"> 動的型付け
+						<dfn>数値データを数値に、true/falseをブール値に自動変換します。</dfn>
 					</label>
 
 					<label>
-						<input type="checkbox" id="skipEmptyLines"> Skip empty lines
-						<dfn>By default, empty lines are parsed; check to skip.</dfn>
+						<input type="checkbox" id="skipEmptyLines"> 空行をスキップ
+						<dfn>デフォルトでは空行も解析されます。チェックするとスキップします。</dfn>
 					</label>
 
 				</div>
@@ -93,82 +93,82 @@
 
 					<div class="grid-33 push-66">
 						<label>
-							Delimiter:<input type="text" size="4" maxlength="1" placeholder="auto" id="delimiter"><a href="javascript:" id="insert-tab">tab</a>
-							<dfn>The delimiting character. Usually comma or tab. Default is comma.</dfn>
+							区切り文字:<input type="text" size="4" maxlength="1" placeholder="自動" id="delimiter"><a href="javascript:" id="insert-tab">タブ</a>
+							<dfn>区切り文字。通常はカンマまたはタブです。デフォルトはカンマです。</dfn>
 						</label>
 
 						<label>
-							Preview:<input type="number" min="0" max="1000" placeholder="0" id="preview">
-							<dfn>If &gt; 0, stops parsing after this many rows.</dfn>
+							プレビュー:<input type="number" min="0" max="1000" placeholder="0" id="preview">
+							<dfn>0より大きい場合、その行数で解析を停止します。</dfn>
 						</label>
 
 						<label>
-							Encoding:<input type="text" id="encoding" placeholder="default" size="7">
-							<dfn>Only applies when reading local files. Default is specified by the browser (usually UTF-8).</dfn>
+							エンコーディング:<input type="text" id="encoding" placeholder="デフォルト" size="7">
+							<dfn>ローカルファイルを読む際のみ適用されます。デフォルトはブラウザで指定されます（通常UTF-8）。</dfn>
 						</label>
 
 						<label>
-							Comment char:<input type="text" size="7" maxlength="10" placeholder="default" id="comments">
-							<dfn>If specified, skips lines starting with this string.</dfn>
+							コメント文字:<input type="text" size="7" maxlength="10" placeholder="デフォルト" id="comments">
+							<dfn>指定した場合、この文字列で始まる行をスキップします。</dfn>
 						</label>
 					</div>
 
 					<div class="grid-66 pull-33">
 						<div class="input-area" id="input-string">
-							<textarea id="input" placeholder="String input">Column 1,Column 2,Column 3,Column 4
+							<textarea id="input" placeholder="文字列入力">列1,列2,列3,列4
 1-1,1-2,1-3,1-4
 2-1,2-2,2-3,2-4
 3-1,3-2,3-3,3-4
 4,5,6,7</textarea>
 						</div>
 						<div class="input-area" id="input-local">
-							
+
 							<div class="text-center">
-								Choose one or more delimited text files for Papa to parse.
+								解析する区切り文字区切りのテキストファイルを1つ以上選択してください。
 							</div>
 
 							<input type="file" id="files" multiple>
-							
-							Sample files:
+
+							サンプルファイル:
 
 							<ul>
 								<li>
-									<a href="/resources/files/normal.csv" id="local-normal-file">Normal file</a>
+									<a href="/resources/files/normal.csv" id="local-normal-file">通常のファイル</a>
 								</li>
 								<li>
-									<a href="/resources/files/big.csv" id="local-large-file">Large file</a>
+									<a href="/resources/files/big.csv" id="local-large-file">大きなファイル</a>
 								</li>
 								<li>
-									<a href="/resources/files/malformed.tsv" id="local-malformed-file">Malformed file</a>
+									<a href="/resources/files/malformed.tsv" id="local-malformed-file">不正な形式のファイル</a>
 								</li>
 							</ul>
 						</div>
 						<div class="input-area" id="input-remote">
-							
+
 							<div class="text-center">
-								Type the URL of the file to be downloaded and parsed.
+								ダウンロードして解析するファイルのURLを入力してください。
 								<br>
-								<small>(cross-origin requests require Access-Control-Allow-Origin header)</small>
+								<small>（クロスオリジンリクエストはAccess-Control-Allow-Originヘッダーが必要です）</small>
 							</div>
 
 							<input type="text" id="url" placeholder="URL">
 
-							Sample files:
+							サンプルファイル:
 
 							<ul>
 								<li>
-									<a href="javascript:" id="remote-normal-file">Normal file</a>
+									<a href="javascript:" id="remote-normal-file">通常のファイル</a>
 								</li>
 								<li>
-									<a href="javascript:" id="remote-large-file">Large file</a>
+									<a href="javascript:" id="remote-large-file">大きなファイル</a>
 								</li>
 								<li>
-									<a href="javascript:" id="remote-malformed-file">Malformed file</a>
+									<a href="javascript:" id="remote-malformed-file">不正な形式のファイル</a>
 								</li>
 							</ul>
 						</div>
 						<div class="input-area" id="input-unparse">
-							<textarea id="json" placeholder="JSON string">[
+							<textarea id="json" placeholder="JSON文字列">[
 	{
 	    "Column 1": "1-1",
 	    "Column 2": "1-2",
@@ -197,9 +197,9 @@
 						</div>
 						<div class="text-center">
 							<div class="see-results">
-								Results will appear in the console of your browser's inspector tools
+								結果はブラウザのインスペクターツールのコンソールに表示されます
 							</div>
-							<button id="submit" class="green">Parse</button>
+							<button id="submit" class="green">解析</button>
 						</div>
 					</div>
 				</div>
@@ -224,27 +224,27 @@
 						&copy; 2013-2019
 					</div>
 					<div class="grid-15 mobile-grid-50 links">
-						<h5>Learn</h5>
-						<a href="/demo">Demo</a>
-						<a href="/docs">Documentation</a>
-						<a href="/faq">FAQ</a>
+						<h5>学習</h5>
+						<a href="/demo">デモ</a>
+						<a href="/docs">ドキュメント</a>
+						<a href="/faq">よくある質問</a>
 					</div>
 					<div class="grid-15 mobile-grid-50 links">
-						<h5>Project</h5>
-						<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=S6VTL9FQ6L8EN&item_name=PapaParse&currency_code=EUR&source=url">Donate</a>
+						<h5>プロジェクト</h5>
+						<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=S6VTL9FQ6L8EN&item_name=PapaParse&currency_code=EUR&source=url">寄付</a>
 						<a href="https://github.com/mholt/PapaParse">GitHub</a>
-						<a href="https://twitter.com/search?q=%23PapaParse">Share</a>
+						<a href="https://twitter.com/search?q=%23PapaParse">シェア</a>
 					</div>
 					<div class="clear hide-on-desktop"></div>
 					<div class="grid-15 mobile-grid-50 links">
-						<h5>Download</h5>
-						<a href="https://github.com/mholt/PapaParse/archive/master.zip">Latest (master)</a>
+						<h5>ダウンロード</h5>
+						<a href="https://github.com/mholt/PapaParse/archive/master.zip">最新版 (master)</a>
 						<hr>
 						<a href="https://github.com/mholt/PapaParse/blob/master/papaparse.min.js">Lil' Papa</a>
 						<a href="https://github.com/mholt/PapaParse/blob/master/papaparse.js">Fat Papa</a>
 					</div>
 					<div class="grid-15 mobile-grid-50 links">
-						<h5>Community</h5>
+						<h5>コミュニティ</h5>
 						<a href="https://twitter.com/search?q=%23PapaParse">Twitter</a>
 						<a href="http://stackoverflow.com/questions/tagged/papaparse">Stack Overflow</a>
 					</div>

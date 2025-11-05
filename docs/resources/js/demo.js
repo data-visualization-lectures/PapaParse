@@ -96,7 +96,7 @@ $(function()
 		{
 			if (!$('#files')[0].files.length)
 			{
-				alert("Please choose at least one file to parse.");
+				alert("解析するファイルを1つ以上選択してください。");
 				return enableButton();
 			}
 			
@@ -105,18 +105,18 @@ $(function()
 				before: function(file, inputElem)
 				{
 					start = now();
-					console.log("Parsing file...", file);
+					console.log("ファイルを解析中...", file);
 				},
 				error: function(err, file)
 				{
-					console.log("ERROR:", err, file);
+					console.log("エラー:", err, file);
 					firstError = firstError || err;
 					errorCount++;
 				},
 				complete: function()
 				{
 					end = now();
-					printStats("Done with all files");
+					printStats("すべてのファイルの処理が完了しました");
 				}
 			});
 		}
@@ -124,7 +124,7 @@ $(function()
 		{
 			if (!input)
 			{
-				alert("Please enter a valid JSON string to convert to CSV.");
+				alert("CSVに変換するために有効なJSON文字列を入力してください。");
 				return enableButton();
 			}
 
@@ -132,13 +132,13 @@ $(function()
 			var csv = Papa.unparse(input, config);
 			end = now();
 
-			console.log("Unparse complete");
-			console.log("Time:", (end-start || "(Unknown; your browser does not support the Performance API)"), "ms");
+			console.log("変換が完了しました");
+			console.log("時間:", (end-start || "(不明; ブラウザがPerformance APIをサポートしていません)"), "ms");
 			
 			if (csv.length > maxUnparseLength)
 			{
 				csv = csv.substr(0, maxUnparseLength);
-				console.log("(Results truncated for brevity)");
+				console.log("(結果は簡潔性のため切り詰められています)");
 			}
 
 			console.log(csv);
@@ -147,16 +147,16 @@ $(function()
 		}
 		else if (inputType == "remote" && !input)
 		{
-			alert("Please enter the URL of a file to download and parse.");
+			alert("ダウンロードして解析するファイルのURLを入力してください。");
 			return enableButton();
 		}
 		else
 		{
 			start = now();
 			var results = Papa.parse(input, config);
-			console.log("Synchronous results:", results);
+			console.log("同期的な結果:", results);
 			if (config.worker || config.download)
-				console.log("Running...");
+				console.log("実行中...");
 		}
 	});
 
@@ -173,13 +173,13 @@ function printStats(msg)
 {
 	if (msg)
 		console.log(msg);
-	console.log("       Time:", (end-start || "(Unknown; your browser does not support the Performance API)"), "ms");
-	console.log("  Row count:", rowCount);
+	console.log("        時間:", (end-start || "(不明; ブラウザがPerformance APIをサポートしていません)"), "ms");
+	console.log("    行数:", rowCount);
 	if (stepped)
-		console.log("    Stepped:", stepped);
-	console.log("     Errors:", errorCount);
+		console.log("  ステップ数:", stepped);
+	console.log("     エラー:", errorCount);
 	if (errorCount)
-		console.log("First error:", firstError);
+		console.log("最初のエラー:", firstError);
 }
 
 
@@ -232,8 +232,8 @@ function completeFn(results)
 			rowCount = results.data.length;
 	}
 
-	printStats("Parse complete");
-	console.log("    Results:", results);
+	printStats("解析が完了しました");
+	console.log("        結果:", results);
 
 	// icky hack
 	setTimeout(enableButton, 100);
@@ -242,7 +242,7 @@ function completeFn(results)
 function errorFn(err, file)
 {
 	end = now();
-	console.log("ERROR:", err, file);
+	console.log("エラー:", err, file);
 	enableButton();
 }
 
