@@ -13,7 +13,7 @@ $(function()
 		$(this).addClass('active');
 		$('.input-area').hide();
 		$('#input-string').show();
-		$('#submit').text("Parse");
+		$('#submit').text("JSONに変換");
 		inputType = "string";
 	});
 
@@ -23,7 +23,7 @@ $(function()
 		$(this).addClass('active');
 		$('.input-area').hide();
 		$('#input-local').show();
-		$('#submit').text("Parse");
+		$('#submit').text("JSONに変換");
 		inputType = "local";
 	});
 
@@ -33,7 +33,7 @@ $(function()
 		$(this).addClass('active');
 		$('.input-area').hide();
 		$('#input-remote').show();
-		$('#submit').text("Parse");
+		$('#submit').text("JSONに変換");
 		inputType = "remote";
 	});
 
@@ -43,7 +43,7 @@ $(function()
 		$(this).addClass('active');
 		$('.input-area').hide();
 		$('#input-unparse').show();
-		$('#submit').text("Unparse");
+		$('#submit').text("CSVに変換");
 		inputType = "json";
 	});
 
